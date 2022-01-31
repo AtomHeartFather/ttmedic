@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'App\Http\Controllers\MainController@home');
 
-Route::get('/articles', function () {
-    return view('articles');
-});
+Route::get('/articles', 'App\Http\Controllers\MainController@articles');
 
-Route::get('/articles/{article}', function () {
-    return view('article');
-});
+Route::get('/articles/{article}', 'App\Http\Controllers\MainController@article');
+
+// Route::get('/articles/{article}', function ($article) {
+//     return view('article', ['article_number' => $article]);
+// });
