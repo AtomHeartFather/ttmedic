@@ -1,0 +1,40 @@
+22-01-30-----------------------------------------------------------------------------------
+
+сидирование в ларавел
+https://www.codecheef.org/article/how-to-use-faker-in-database-seeder-in-laravel
+
+faker
+https://github.com/fzaninotto/Faker
+
+еще про сидинг
+https://www.youtube.com/watch?v=vbgcpuEErhY
+https://si-dev.com/ru/blog/generating-fake-data-in-laravel
+
+laravel быстрый старт документация
+https://laravel.ru/docs/v5/quickstart
+
+laravel видео 1 час
+https://www.youtube.com/watch?v=0Be0fX9wbXc
+
+миграции
+https://laravel.com/docs/8.x/migrations#foreign-key-constraints
+
+
+
+
+BD plan -------------------------------------------------------------------------------
+
+● Навигационное меню. Активный пункт "Каталог статей".
+● Обложка статьи
+● Текст статьи
+● Теги статьи
+● Счетчик лайков статьи
+● Форма комментария
+
+id
+title
+text
+tags
+likes
+
+---------------------------------------------------------------------------------------
