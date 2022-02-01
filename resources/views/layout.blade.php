@@ -10,8 +10,8 @@
         <div class="container">
             <div class="d-flex flex-column flex-md-row align-items-center mb-4 border-bottom">
               <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                <a class="me-3 py-2 text-dark text-decoration-none" href="/">Главная страница</a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="/articles">Каталог статей</a>
+                <a class="me-3 py-2 text-dark text-decoration-none {{ (request()->is('/')) ? 'fw-bold' : 'fw-light' }}" href="/">Главная страница</a>
+                <a class="me-3 py-2 text-dark text-decoration-none {{ (request()->is('articles*')) ? 'fw-bold' : 'fw-light' }}" href="/articles">Каталог статей</a>
               </nav>
             </div>
         </div>
