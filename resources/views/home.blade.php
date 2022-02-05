@@ -15,4 +15,5 @@
             </div>
             <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="https://via.placeholder.com/200x250.png" data-holder-rendered="true">
           </div>
+    <p>{{!!$articles!!}}</p>
 @endsection

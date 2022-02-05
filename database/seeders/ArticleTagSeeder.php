@@ -28,7 +28,3 @@ class ArticleTagSeeder extends Seeder
             });
     }
 }
-
-        //      $article->tags()->attach(
-        //         $tags->random(rand(1, 3))->pluck('id')->toArray()
-        //     ); 
