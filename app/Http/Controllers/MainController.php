@@ -11,6 +11,11 @@ class MainController extends Controller
 
     public function home() {
         $articles = Article::latest()->take(6)->get();
+        // foreach ($articles as $article) {
+        //     foreach ($article as $i) {
+        //         $i['text'] = 8;
+        //     }
+        // }
         return view('home', ['articles' => $articles]);
     }
 

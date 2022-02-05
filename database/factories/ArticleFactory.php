@@ -17,7 +17,7 @@ class ArticleFactory extends Factory
             'title' => $this->faker->sentence(5),
             'text' => $this->faker->realText($maxNbChars = 300, $indexSize = 2),
             'likes' => $this->faker->numberBetween(1,20),
-            'cover' => "http://lorempixel.com/400/200/sports/",
+            'cover' => "https://via.placeholder.com/200x250.png",
             'created_at' => $this->faker->dateTimeBetween(),
         ];
     }
