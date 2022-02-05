@@ -11,16 +11,12 @@ class MainController extends Controller
 
     public function home() {
         $articles = Article::latest()->take(6)->get();
-        // foreach ($articles as $article) {
-        //     foreach ($article as $i) {
-        //         $i['text'] = 8;
-        //     }
-        // }
         return view('home', ['articles' => $articles]);
     }
 
     public function articles() {
-        return view('articles');
+        $articles = Article::paginate(10);
+        return view('articles', ['articles' => $articles]);
     }
 
     public function article($article) {
