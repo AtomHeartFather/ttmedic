@@ -19,8 +19,9 @@ class MainController extends Controller
         return view('articles', ['articles' => $articles]);
     }
 
-    public function article($article) {
-        return view('article', ['article_number' => $article]);
+    public function article($article_id) {
+        $article = Article::firstwhere('id', $article_id);
+        return view('article', compact('article'));
     }
 
 }

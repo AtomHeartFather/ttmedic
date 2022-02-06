@@ -4,8 +4,6 @@
 @section('page_title')Список статей@endsection
 
 @section('main_content')
-    <p>● Листинг статей. Сортировка LIFO. 10 миниатюр статей на страницу
-● Паджинация</p>
     @foreach ($articles as $article)
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
