@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Tag;
-use Response;
 
 class MainController extends Controller
 {
@@ -31,6 +30,14 @@ class MainController extends Controller
         $article['likes'] += 1;
         $article->save(); 
         return $article['likes'];
+    }
+
+    public function comment(Request $request) {
+        // $request->validate([
+        //     'theme' => 'required',
+        //     'text' => 'required'
+        // ]);
+        return 1;
     }
 
 }

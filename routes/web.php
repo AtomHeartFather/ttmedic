@@ -21,3 +21,4 @@ Route::get('/articles/{article_id}', 'App\Http\Controllers\MainController@articl
 
 Route::post('/article/like', 'App\Http\Controllers\MainController@like');
 
+Route::post('/article/comment', 'App\Http\Controllers\MainController@comment');

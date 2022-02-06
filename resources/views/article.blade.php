@@ -5,16 +5,6 @@
 
 @section('main_content')
     <h1>{{ $article->title }}</h1>
-    <p>{{ $tags }}</p>
-
-    Компоненты:
-    ● Навигационное меню. Активный пункт "Каталог статей".
-    ● Обложка статьи
-    ● Текст статьи
-    ● Теги статьи
-    ● Счетчик лайков статьи
-    ● Форма комментария
-
 
             <div class="card mb-4 box-shadow">
                 <img class="card-img-top" style="height: 225px; width: 600px; display: block;" src="{{ $article->cover }}" data-holder-rendered="true">
@@ -23,38 +13,84 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" id="ajaxLike" class="btn btn-sm btn-outline-secondary">{{ $article->likes }}</button>
-                      {{ url('/article/like') }}
                     </div>
                   </div>
                 </div>
             </div>
             @foreach ($tags as $tag)
-                <a href="{{ $tag->url }}" class="btn btn-secondary my-2">{{ $tag->lable }}</a>
+                <a href="{{ $tag->url }}" class="btn btn-secondary">{{ $tag->lable }}</a>
             @endforeach
 
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js"
-               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-               crossorigin="anonymous">
-        </script>
-        <script>
-         jQuery(document).ready(function(){
-            jQuery('#ajaxLike').click(function(e){
-               e.preventDefault();
-               $.ajaxSetup({
-                  headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                  }
-              });
-               jQuery.ajax({
-                  url: "{{ url('/article/like') }}",
-                  method: 'post',
-                  data: {
-                     article_id: {{ $article->id }}
-                  },
-                  success: function(result){
-                     $("#ajaxLike").text(result);
-                  }});
-               });
-            });
-        </script>
+
+            <div id="CommentOk" class="mt-5 d-flex align-items-center justify-content-center border" style="display: none !important; height:200px">
+                <h3>Ваше сообщение успешно отправлено!</h3>
+            </div>
+            <div id="CommentForm" class="container mt-5">
+                 <h3>Комментарий</h3>
+                 <form id="myForm">
+                    <div class="form-group">
+                      <label for="theme">Тема сообщения</label>
+                      <input type="text" class="form-control" id="theme">
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="text">Текст сообщения</label>
+                      <input type="text" class="form-control" id="text">
+                    </div>
+                    <button class="btn btn-primary" id="ajaxComment">Отправить</button>
+                  </form>
+            </div>
+
+
+            <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+                   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                   crossorigin="anonymous">
+            </script>
+            <script>
+             jQuery(document).ready(function(){
+
+
+
+                jQuery('#ajaxLike').click(function(e){
+                   e.preventDefault();
+                   $.ajaxSetup({
+                                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+                                });
+                   jQuery.ajax({
+                                url: "{{ url('/article/like') }}",
+                                method: 'post',
+                                data: {
+                                        article_id: {{ $article->id }}
+                                        },
+                                success: function(result){
+                                                            $("#ajaxLike").text(result);
+                                                        }
+                                });
+                   });
+
+
+
+                jQuery('#ajaxComment').click(function(e){
+                   e.preventDefault();
+                   $.ajaxSetup({
+                                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+                                });
+                   jQuery.ajax({
+                                url: "{{ url('/article/comment') }}",
+                                method: 'post',
+                                data: {
+                                        theme: jQuery('#theme').val(),
+                                        text: jQuery('#text').val(),
+                                        },
+                                success: function(result){
+                                                            $("#CommentForm").hide();
+                                                            $("#CommentOk").show();
+                                                            
+                                                        }
+                                });
+                   });
+
+
+
+                });
+            </script>
 @endsection
