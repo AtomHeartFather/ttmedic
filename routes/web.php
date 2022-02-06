@@ -19,6 +19,5 @@ Route::get('/articles', 'App\Http\Controllers\MainController@articles');
 
 Route::get('/articles/{article_id}', 'App\Http\Controllers\MainController@article');
 
-// Route::get('/articles/{article}', function ($article) {
-//     return view('article', ['article_number' => $article]);
-// });
+Route::post('/article/like', 'App\Http\Controllers\MainController@like');
+

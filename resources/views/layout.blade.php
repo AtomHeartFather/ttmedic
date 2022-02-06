@@ -4,6 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   <title>@yield('page_title')</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
  </head>
  <body>
     <header>

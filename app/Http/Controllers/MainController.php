@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Tag;
+use Response;
 
 class MainController extends Controller
 {
@@ -23,6 +24,13 @@ class MainController extends Controller
         $article = Article::firstwhere('id', $article_id);
         $tags = $article->tags()->get();
         return view('article', compact('article', 'tags'));
+    }
+
+    public function like(Request $request) {
+        $article = Article::firstwhere('id', $request->article_id);
+        $article['likes'] += 1;
+        $article->save(); 
+        return $article['likes'];
     }
 
 }
