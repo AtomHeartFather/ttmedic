@@ -9,7 +9,7 @@
             <div class="card-body d-flex flex-column align-items-start">
               
               <h3 class="mb-0">
-                {{ $article->title }}
+                <a href="/articles/{{$article->id}}">{{ $article->title }}</a>
               </h3>
               
               <p class="card-text mb-auto">{{ Str::limit($article->text, 100) }}</p>

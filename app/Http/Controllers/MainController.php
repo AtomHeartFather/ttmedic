@@ -21,7 +21,8 @@ class MainController extends Controller
 
     public function article($article_id) {
         $article = Article::firstwhere('id', $article_id);
-        return view('article', compact('article'));
+        $tags = $article->tags()->get();
+        return view('article', compact('article', 'tags'));
     }
 
 }

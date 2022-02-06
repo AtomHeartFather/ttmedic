@@ -15,6 +15,7 @@ class EditArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->string('cover');
+            $table->string('mini_cover');
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
@@ -29,6 +30,7 @@ class EditArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->dropColumn('cover');
+            $table->dropColumn('mini_cover');
             $table->dropColumn('created_at');
             $table->dropColumn('updated_at');
         });
