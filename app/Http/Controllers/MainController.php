@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Tag;
+use App\Models\Comment;
 
 class MainController extends Controller
 {
@@ -33,10 +34,11 @@ class MainController extends Controller
     }
 
     public function comment(Request $request) {
-        // $request->validate([
-        //     'theme' => 'required',
-        //     'text' => 'required'
-        // ]);
+        $comment = new Comment;
+        $comment->article_id = $request->article_id;
+        $comment->subject = $request->subject;
+        $comment->body = $request->body;
+        $comment->save();
         return 1;
     }
 

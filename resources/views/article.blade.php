@@ -29,12 +29,12 @@
                  <h3>Комментарий</h3>
                  <form id="myForm">
                     <div class="form-group">
-                      <label for="theme">Тема сообщения</label>
-                      <input type="text" class="form-control" id="theme">
+                      <label for="subject">Тема сообщения</label>
+                      <input type="text" class="form-control" id="subject">
                     </div>
                     <div class="form-group mb-3">
-                      <label for="text">Текст сообщения</label>
-                      <input type="text" class="form-control" id="text">
+                      <label for="body">Текст сообщения</label>
+                      <input type="text" class="form-control" id="body">
                     </div>
                     <button class="btn btn-primary" id="ajaxComment">Отправить</button>
                   </form>
@@ -78,8 +78,9 @@
                                 url: "{{ url('/article/comment') }}",
                                 method: 'post',
                                 data: {
-                                        theme: jQuery('#theme').val(),
-                                        text: jQuery('#text').val(),
+                                        article_id: {{ $article->id }},
+                                        subject: jQuery('#subject').val(),
+                                        body: jQuery('#body').val()
                                         },
                                 success: function(result){
                                                             $("#CommentForm").hide();
